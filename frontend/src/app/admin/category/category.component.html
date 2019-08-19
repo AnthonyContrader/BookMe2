@@ -1,0 +1,48 @@
+<h1>Manage Categories</h1>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-10">
+      <table>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Insert
+          </th>
+          <th>
+            Delete
+          </th>
+        </tr>
+        <tr class="bg-success">
+          <td>
+            <input class="bg-white" placeholder="name" [(ngModel)]="categorytoinsert.name">
+          </td>
+          <td>
+            <button (click)="insert(categorytoinsert)">Insert</button>
+          </td>
+          <td>
+            <button (click)="clear()">Clear</button>
+          </td>
+        </tr>
+        <tr *ngFor="let c of categories">
+          <td>
+            <input [(ngModel)]="c.name">
+          </td>
+          <td>
+            <button (click)=update(c)>Save</button>
+          </td>
+          <td>
+            <button (click)="delete(c)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+  </div>
+</div>
