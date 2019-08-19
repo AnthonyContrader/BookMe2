@@ -1,0 +1,25 @@
+version: '2'
+services:
+  bookme2-app:
+    image: bookme2
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - SPRING_PROFILES_ACTIVE=prod,swagger
+      - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
+      - SPRING_CLOUD_CONSUL_HOST=consul
+      - SPRING_CLOUD_CONSUL_PORT=8500
+      - SPRING_DATASOURCE_URL=jdbc:mysql://bookme2-mysql:3306/bookme2?useUnicode=true&characterEncoding=utf8&useSSL=false
+      - JHIPSTER_SLEEP=30 # gives time for other services to boot before the application
+  bookme2-mysql:
+    extends:
+      file: mysql.yml
+      service: bookme2-mysql
+  consul:
+    extends:
+      file: consul.yml
+      service: consul
+
+  consul-config-loader:
+    extends:
+      file: consul.yml
+      service: consul-config-loader

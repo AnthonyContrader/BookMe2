@@ -3,7 +3,7 @@
     "promptValues": {
       "packageName": "com.mycompany.myapp"
     },
-    "jhipsterVersion": "5.2.1",
+    "jhipsterVersion": "6.2.0",
     "applicationType": "microservice",
     "baseName": "BookMe2",
     "packageName": "com.mycompany.myapp",
@@ -27,6 +27,10 @@
     "jhiPrefix": "jhi",
     "clientPackageManager": "npm",
     "skipClient": true,
-    "skipUserManagement": true
+    "skipUserManagement": true,
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "blueprints": []
   }
 }
