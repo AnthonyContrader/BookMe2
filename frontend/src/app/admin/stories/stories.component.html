@@ -1,0 +1,69 @@
+<h1>Stories Management</h1>
+
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-10">
+      <table>
+        <tr>
+          <th>
+            Title
+          </th>
+          <th>
+            Plot
+          </th>
+          <th>
+            Author
+          </th>
+          <th>
+            Category
+          </th>
+          <th>
+            Is Published
+          </th>
+          <th>
+            Delete
+          </th>
+        </tr>
+        <tr *ngFor="let s of stories">
+          <td>
+            <span>{{s.title}}</span>
+          </td>
+          <td>
+            <span>{{s.plot}}</span>
+          </td>
+          <td>
+            <span>{{s.user.username}}</span>
+          </td>
+          <td>
+            <span>{{s.category | json}}</span>
+          </td>
+          <td>
+            <span>{{s.published}}</span>
+          </td>
+          <td>
+            <button (click)="delete(s)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+  </div>
+</div>
+
+<!-- <label>Title: <input [(ngModel)]="storytoinsert.title"/></label>
+<label>Plot: <input [(ngModel)]="storytoinsert.plot" /></label>
+<button (click)="insertStory()">Add</button>
+<div>
+  current user:
+  <div>
+    <p>{{user.id}}</p>
+    <p>{{user.username}}</p>
+    <p>{{user.password}}</p>
+    <p>{{user.usertype}}</p>
+  </div>
+</div> -->
