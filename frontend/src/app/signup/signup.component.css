@@ -1,0 +1,64 @@
+form{
+    margin-top:270px;
+    width: 55%;
+    padding: 10px;
+    border-radius:0;
+    border-color: rgb(29, 82, 78);
+}
+
+img{
+    position: inherit;
+    width:50%;
+    margin: 12%;
+}
+
+input, input:hover, input::selection, input:checked, input:focus{
+    border: 0;
+    background-color: white;
+    border-radius: 0;
+    color: rgb(29, 82, 78);
+    border-bottom: 1px solid rgb(29, 82, 78);
+    margin: 0px; 
+}
+
+.container-fluid{
+    background-color: rgb(103, 223, 215);
+    height: 100vh;
+}
+input::placeholder{
+    color: rgb(29, 82, 78);
+    font-family: "Harrington";
+    text-align: left;
+}
+.form-control{
+border: none;
+background-color: white;
+color: rgb(29, 82, 78);
+border-bottom: 1px solid white;
+}
+
+.login{
+border: none;
+background-color:  white;
+color: rgb(29, 82, 78);
+border: 1px solid white;
+border-radius: 2px;
+padding-top: 10px;
+padding-right: auto;
+padding-bottom: 10px;
+padding-left: auto;
+}
+
+/* button {
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: white;
+    background-color: rgb(29, 82, 78);
+    border: none;
+} */
+
+p{
+font-size: 14px;
+color: white;
+}

@@ -1,0 +1,72 @@
+<h1>Manage Users</h1>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-10">
+      <table>
+        <tr>
+          <th>
+            Username
+          </th>
+          <th>
+            E-mail
+          </th>
+          <th>
+            Usertype
+          </th>
+          <th>
+            Edit
+          </th>
+          <th>
+            User
+          </th>
+        </tr>
+        <tr class="bg-success">
+          <td>
+            <input class="bg-white" placeholder="username" [(ngModel)]="usertoinsert.login">
+          </td>
+          <td>
+            <input class="bg-white" placeholder="e-mail" [(ngModel)]="usertoinsert.email">
+          </td>
+          <td>
+            <select placeholder="Authorities" [(ngModel)]="usertoinsert.authorities">
+              <option value="ROLE_ADMIN">ADMIN</option>
+              <option value="ROLE_USER">USER</option>
+            </select>
+          </td>
+          <td>
+            <button (click)="insert(usertoinsert)">Insert</button>
+          </td>
+          <td>
+            <button (click)="clear()">Clear</button>
+          </td>
+        </tr>
+        <tr *ngFor="let user of users">
+          <td>
+            <input [(ngModel)]="user.login">
+          </td>
+          <td>
+            <input [(ngModel)]="user.email">
+          </td>
+          <td>
+            <select [(ngModel)]="user.authorities">
+              <option [selected]="user.authorities==ROLE_ADMIN" value="ROLE_ADMIN">ADMIN</option>
+              <option [selected]="user.authorities==ROLE_USER" value="ROLE_USER">USER</option>
+            </select>
+          </td>
+          <td>
+            <button (click)=update(user)>Save</button>
+          </td>
+          <td>
+            <button (click)="delete(user)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+  </div>
+</div>

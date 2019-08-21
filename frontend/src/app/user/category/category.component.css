@@ -1,0 +1,17 @@
+* {
+    text-align: center;
+}
+
+p {
+    font-size: 1em;
+}
+
+strong {
+    font-size: 1em;
+}
+
+img {
+    position: fixed;
+  bottom: 50px;
+  right: 50px;
+}
