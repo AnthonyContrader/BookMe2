@@ -1,0 +1,11 @@
+it\contrader\web\rest\errors\ExceptionTranslatorIntTest.class
+it\contrader\web\rest\errors\ExceptionTranslatorTestController.class
+it\contrader\config\WebConfigurerTestController.class
+it\contrader\web\rest\TestUtil$ZonedDateTimeMatcher.class
+it\contrader\web\rest\TestUtil.class
+it\contrader\web\rest\StoryResourceIntTest.class
+it\contrader\web\rest\errors\ExceptionTranslatorTestController$TestResponseStatusException.class
+it\contrader\web\rest\util\PaginationUtilUnitTest.class
+it\contrader\config\WebConfigurerTest.class
+it\contrader\web\rest\errors\ExceptionTranslatorTestController$TestDTO.class
+it\contrader\web\rest\LogsResourceIntTest.class
