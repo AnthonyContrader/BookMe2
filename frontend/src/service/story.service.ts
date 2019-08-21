@@ -12,10 +12,11 @@ export class StoryService extends AbstractService<StoryDTO>{
 
   constructor(http: HttpClient) {
     super(http);
-    this.type = 'story';
+    this.type = 'stories';
+    this.micro = 'micro2';
   }
 
-  getAllByCategory(category: CategoryDTO): Observable<StoryDTO[]> {
-    return this.http.post<any>('http://localhost:8080/' + this.type + '/getbycategory', category);
-  }
+  // getAllByCategory(category: CategoryDTO): Observable<StoryDTO[]> {
+  //   return this.http.post<any>('http://localhost:8080/' + this.type + '/getbycategory', category);
+  // }
 }

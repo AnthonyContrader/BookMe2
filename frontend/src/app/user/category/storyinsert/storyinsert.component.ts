@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { Location } from '@angular/common';
 import { SharedService } from '../sharedservice/shared.service';
 import { Subscription } from 'rxjs';
+import { UserDTO } from 'src/dto/userdto';
 
 @Component({
   selector: 'app-storyinsert',
@@ -18,6 +19,8 @@ export class StoryinsertComponent implements OnInit {
 
   storytoinsert: StoryDTO = new StoryDTO();
   subscription: Subscription;
+  author: UserDTO;
+  category: CategoryDTO;
 
   constructor(private storyService: StoryService, private sharedService: SharedService) { 
     // this.subscription = this.sharedService.$categorySource.subscribe(
@@ -29,8 +32,10 @@ export class StoryinsertComponent implements OnInit {
   }
 
   insertStory(){
-    this.storytoinsert.user = JSON.parse(localStorage.getItem('currentUser'));
-    this.storytoinsert.category = JSON.parse(localStorage.getItem('currentCategory'));
+    this.author = JSON.parse(localStorage.getItem('currentUser'));
+    this.storytoinsert.author = this.author.firstName;
+    this.category=JSON.parse(localStorage.getItem('currentCategory'));
+    this.storytoinsert.category = this.category.id;
     this.storyService.insert(this.storytoinsert)
     .subscribe();
     this.sharedService.reloadCategory();

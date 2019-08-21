@@ -30,16 +30,16 @@ export class StoriesComponent implements OnInit {
     );
   }
 
-  insertStory(){
-    this.storytoinsert.user = this.user;
-    this.service.insert(this.storytoinsert).subscribe
-    (
-      () => {
-              this.getStories();
-              this.storytoinsert = new StoryDTO();
-            }
-    )
-  }
+  // insertStory(){
+  //   // this.storytoinsert.user = this.user;
+  //   this.service.insert(this.storytoinsert).subscribe
+  //   (
+  //     () => {
+  //             this.getStories();
+  //             this.storytoinsert = new StoryDTO();
+  //           }
+  //   )
+  // }
 
   delete(story: StoryDTO){      
     this.service.delete(story.id).subscribe

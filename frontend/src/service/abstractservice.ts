@@ -22,7 +22,8 @@ export abstract class AbstractService<DTO> implements Service<DTO> {
     }
 
     auth() {
-        const user = JSON.parse(localStorage.getItem('currentUser')) as UserDTO;
+        const user = JSON.parse(localStorage.getItem('AUTOKEN')) as UserDTO;
+        // console.log(user);
         if (user) {
             return 'Bearer ' + user.authorities;
         } else {
@@ -41,7 +42,7 @@ export abstract class AbstractService<DTO> implements Service<DTO> {
     }
 
     getAll(): Observable<DTO[]> {
-        return this.http.get<DTO[]>('http://localhost:' + this.port + '/services/' + this.micro + '/api/' + this.type, {
+        return this.http.get<DTO[]>('http://localhost:' + this.port + '/' + this.micro + '/api/' + this.type, {
             headers: {
                 Authorization: this.auth()
             }
@@ -49,7 +50,7 @@ export abstract class AbstractService<DTO> implements Service<DTO> {
     }
 
     read(id: number): Observable<DTO> {
-        return this.http.get<DTO>('http://localhost:' + this.port + '/service/' + this.micro + '/api/' + this.type + '/' + id, {
+        return this.http.get<DTO>('http://localhost:' + this.port + '/' + this.micro + '/api/' + this.type + '/' + id, {
             headers: {
                 Authorization: this.auth()
             }
@@ -57,7 +58,7 @@ export abstract class AbstractService<DTO> implements Service<DTO> {
     }
 
     delete(id: number): Observable<any> {
-        return this.http.delete('http://localhost:' + this.port + '/service/' + this.micro + '/api/' + this.type + '/' + id, {
+        return this.http.delete('http://localhost:' + this.port + '/' + this.micro + '/api/' + this.type + '/' + id, {
             headers: {
                 Authorization: this.auth()
             }
@@ -65,7 +66,7 @@ export abstract class AbstractService<DTO> implements Service<DTO> {
     }
 
     insert(dto: DTO): Observable<any> {
-        return this.http.post<DTO>('http://localhost:' + this.port + '/service/' + this.micro + '/api/' + this.type, dto, {
+        return this.http.post<DTO>('http://localhost:' + this.port + '/' + this.micro + '/api/' + this.type, dto, {
             headers: {
                 Authorization: this.auth()
             }
@@ -73,7 +74,7 @@ export abstract class AbstractService<DTO> implements Service<DTO> {
     }
 
     update(dto: DTO): Observable<DTO> {
-        return this.http.put<DTO>('http://localhost:' + this.port + '/service/' + this.micro + '/api/' + this.type, dto, {
+        return this.http.put<DTO>('http://localhost:' + this.port + '/' + this.micro + '/api/' + this.type, dto, {
             headers: {
                 Authorization: this.auth()
             }

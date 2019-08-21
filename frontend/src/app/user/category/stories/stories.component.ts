@@ -16,11 +16,12 @@ export class StoriesComponent implements OnInit {
 
   stories: StoryDTO[] = [];
   subscription: Subscription;
+  category: CategoryDTO;
  
 
   constructor(private storyService: StoryService, private sharedService: SharedService) {
     this.subscription = this.sharedService.$categorySource.subscribe(
-      category => this.getStories(category)
+      category => {this.getStories(category);this.category = category;}
     );
 
      }
@@ -29,9 +30,14 @@ export class StoriesComponent implements OnInit {
   }
 
   getStories(category: CategoryDTO) {
- 
-    this.storyService.getAllByCategory(category)
-      .subscribe(stories=>this.stories=stories);
+    this.stories = [];
+    this.storyService.getAll()
+      .subscribe(stories=>{
+        stories.forEach(s=>{
+          if(s.category == this.category.id){
+            this.stories.push(s);
+          }});
+      });
     
   }
 

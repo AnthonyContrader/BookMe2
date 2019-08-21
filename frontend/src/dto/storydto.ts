@@ -8,17 +8,17 @@ export class StoryDTO {
 
     title: string = '';
 
-    plot: string = '';
+    // plot: string = '';
 
-    published: boolean = false;
+    // published: boolean = false;
 
-    category: CategoryDTO = new CategoryDTO();
+    // category: CategoryDTO = new CategoryDTO();
 
-    user: UserDTO = null;
+    // user: UserDTO = null;
 
-    // like: UserDTO[] = null;
+    // novel: NovelDTO = null;
 
-    // bookmark: UserDTO[] = null;
+    author: string;
 
-    novel: NovelDTO = null;
+    category: number;
 }
