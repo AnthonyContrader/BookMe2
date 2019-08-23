@@ -1,23 +1,30 @@
 import { AppPage } from './app.po';
-import { browser, logging } from 'protractor';
 
-describe('workspace-project App', () => {
+import {browser,by,element,logging} from 'protractor';
+
+describe('protractor-tutorial - Login page', () => {
   let page: AppPage;
+
+  const wrongCredentias = {
+    username: 'test',          //test con credenziali errate, in questo caso non viene eseguito
+    password: 'test'
+  };
 
   beforeEach(() => {
     page = new AppPage();
+
+
   });
 
-  it('should display welcome message', () => {
+  function delay(ms: number) {    //temporizzatore 
+    return new Promise( resolve => setTimeout(resolve, ms) );
+}
+
+  it('when login is successful — he should redirect to default “public” page', async () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to SampleAngular!');
-  });
-
-  afterEach(async () => {
-    // Assert that there are no errors emitted from the browser
-    const logs = await browser.manage().logs().get(logging.Type.BROWSER);
-    expect(logs).not.toContain(jasmine.objectContaining({
-      level: logging.Level.SEVERE,
-    } as logging.Entry));
-  });
+    page.fillCredentials();
+    await delay(8000); //TEMPORIZZATORE DA INSERIRE PRIMA DEL CONTROLLO (PRENDERE TEMPO)
+    expect(page.getPageTitleText()).toEqual('Ma Funziona!');
+    expect(true).toBe(element(by.css('app-admin-dashboard')).isDisplayed());
+  })
 });
