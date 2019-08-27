@@ -1,0 +1,15 @@
+C:\Users\manus\source\repos\NET\NET\bin\Debug\netcoreapp2.1\NET.deps.json
+C:\Users\manus\source\repos\NET\NET\bin\Debug\netcoreapp2.1\NET.runtimeconfig.json
+C:\Users\manus\source\repos\NET\NET\bin\Debug\netcoreapp2.1\NET.runtimeconfig.dev.json
+C:\Users\manus\source\repos\NET\NET\bin\Debug\netcoreapp2.1\NET.dll
+C:\Users\manus\source\repos\NET\NET\bin\Debug\netcoreapp2.1\NET.pdb
+C:\Users\manus\source\repos\NET\NET\obj\Debug\netcoreapp2.1\NET.csprojAssemblyReference.cache
+C:\Users\manus\source\repos\NET\NET\obj\Debug\netcoreapp2.1\NET.csproj.CoreCompileInputs.cache
+C:\Users\manus\source\repos\NET\NET\obj\Debug\netcoreapp2.1\NET.RazorAssemblyInfo.cache
+C:\Users\manus\source\repos\NET\NET\obj\Debug\netcoreapp2.1\NET.RazorAssemblyInfo.cs
+C:\Users\manus\source\repos\NET\NET\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
+C:\Users\manus\source\repos\NET\NET\obj\Debug\netcoreapp2.1\NET.AssemblyInfoInputs.cache
+C:\Users\manus\source\repos\NET\NET\obj\Debug\netcoreapp2.1\NET.AssemblyInfo.cs
+C:\Users\manus\source\repos\NET\NET\obj\Debug\netcoreapp2.1\NET.RazorTargetAssemblyInfo.cache
+C:\Users\manus\source\repos\NET\NET\obj\Debug\netcoreapp2.1\NET.dll
+C:\Users\manus\source\repos\NET\NET\obj\Debug\netcoreapp2.1\NET.pdb
