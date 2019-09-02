@@ -53,11 +53,16 @@ export default class Login extends React.Component {
         .then(res => {
             console.log(res);
           if (res.status === 200) {
-            //this.props.history.push('/');
+              localStorage.setItem('AUTH',res);
+            this.props.history.push('/home');    
           } else {
             const error = new Error(res.error);
             throw error;
           }
+        })
+        .then( data => {
+            //localStorage.setItem("token", data.jwt);
+            console.log(data);
         })
         .catch(err => {
           console.error(err);
