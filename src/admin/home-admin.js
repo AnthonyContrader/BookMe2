@@ -3,6 +3,7 @@ import { Redirect, Route, Link, BrowserRouter as Router, Switch } from 'react-ro
 import Notfound from '../notfound';
 import Users from './users';
 import UserService from '../services/userservice';
+import User from '../models/user';
 
 
 export default class HomeAdmin extends React.Component {
@@ -11,12 +12,14 @@ export default class HomeAdmin extends React.Component {
         this.userService = new UserService();  
     }
     state = {
-        users: []
+        users: [],
+        user: User
     }
 
     showList = async () => {
         this.state.users = await this.userService.getAll();
-        console.log(this.state.users);
+        this.state.user = await this.userService.get('admin');
+        console.log(this.state.user);
     }
     logout = () => {
         localStorage.clear();

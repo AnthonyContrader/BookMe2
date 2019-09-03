@@ -18,8 +18,14 @@ export default class AbstractService {
             }
         };
     }
+
     getAll = () => {
         return fetch(this.state.uri + this.state.api, this.header())
+        .then(res=>res.json());
+    }
+
+    get = (elem) => {
+        return fetch(this.state.uri + this.state.api + '/' + elem, this.header())
         .then(res=>res.json());
     }
 
