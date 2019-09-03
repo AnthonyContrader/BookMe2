@@ -9,14 +9,25 @@ export default function withAuth(ComponentToProtect) {
         redirect: false,
       };
     }
+
+    auth = function(){
+        const token = localStorage.getItem('AUTH');
+        console.log('TOKEN -> ' + token);
+        if(token){
+            return 'Bearer ' + token;
+        }
+        return '';
+    }
     componentDidMount() {
-      fetch('/checkToken')
+      fetch('http://localhost:8080/api/authenticate',{
+        method: 'GET',
+        headers: {
+          Authorization: this.auth()
+        }
+      })
         .then(res => {
-            if(!localStorage.getItem('AUTH')){
-                this.setState({redirect: true});
-            }
           if (res.status === 200) {
-            this.setState({ loading: false });
+            this.setState({ loading: false, redirect: true });
           } else {
             const error = new Error(res.error);
             throw error;

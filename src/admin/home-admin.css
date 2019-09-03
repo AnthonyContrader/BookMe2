@@ -1,11 +1,8 @@
-.Login {
+.Content {
     margin: 5% 33.33% auto 33.33%;
     /* margin-left: 33.3%;
     margin-right: 33.3%; */
-}
-
-#content {
-    /* color: white; */
+    color: white;
     font-size: 4rem;
     text-align: center;
     padding-top: 25%;

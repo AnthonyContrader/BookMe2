@@ -6,7 +6,9 @@ import * as serviceWorker from './serviceWorker';
 import Login from './Login';
 import { Redirect, Route, Link, BrowserRouter as Router, Switch } from 'react-router-dom';
 import withAuth from './withAuth';
-import Notfound from './notfound'
+import Notfound from './notfound';
+import HomeAdmin from './admin/home-admin';
+import HomeUser from './user/home-user';
 
 // ReactDOM.render(<App />, document.getElementById('header'));
 
@@ -15,7 +17,9 @@ const routing = (
         <div>
         <Switch>
       <Route exact path="/login" component={Login} />
-      <Route path="/home" component={withAuth(App)} />
+      {/* <Route path="/home-admin" component={withAuth(App)} /> */}
+      <Route path="/home-admin" component={HomeAdmin} />
+      <Route path="/home-user" component={HomeUser} />
       <Redirect to='/login' />
       <Route component={Notfound} />
       </Switch>

@@ -41,33 +41,40 @@ export default class Login extends React.Component {
         [name]: value
       });
     }
+        
     onSubmit = (event) => {
         event.preventDefault();
         fetch('http://localhost:8080/api/authenticate', {
-          method: 'POST',
-          body: JSON.stringify(this.state),
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        })
-        .then(res => {
-            console.log(res);
-          if (res.status === 200) {
-              localStorage.setItem('AUTH',res);
-            this.props.history.push('/home');    
-          } else {
-            const error = new Error(res.error);
-            throw error;
-          }
-        })
-        .then( data => {
-            //localStorage.setItem("token", data.jwt);
-            console.log(data);
-        })
-        .catch(err => {
-          console.error(err);
-          alert('Error logging in please try again');
-        });
+               method: 'POST',
+               body: JSON.stringify(this.state),
+               headers: {
+                 'Content-Type': 'application/json'
+               }
+             })
+             .then(res => res.json())
+             .then((jwt) => 
+             {
+                if(jwt.id_token){
+                    console.log(jwt.id_token);
+                    console.log('Utente loggato!');
+                    localStorage.setItem('AUTH',jwt.id_token);
+                    fetch('http://localhost:8080/api/users/' + this.state.username,{
+                        headers: {
+                            Authorization: 'Bearer ' + jwt.id_token
+                        }
+                     })
+                    .then(res => res.json())
+                    .then((data) => {
+                        console.log(data.authorities);
+                        if(data.authorities.includes('ROLE_ADMIN')){
+                            this.props.history.push('/home-admin');
+                        } else if(data.authorities.includes('ROLE_USER')){
+                            this.props.history.push('/home-user');
+                        }
+                    })
+                }
+            
+            });
       }
     render() {
       return (
