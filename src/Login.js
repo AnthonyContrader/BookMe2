@@ -2,6 +2,7 @@ import React from 'react';
 import './Login.css';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import User from './models/user';
 
 // function Login() {
 //     return (
@@ -57,7 +58,7 @@ export default class Login extends React.Component {
                 if(jwt.id_token){
                     console.log(jwt.id_token);
                     console.log('Utente loggato!');
-                    localStorage.setItem('AUTH',jwt.id_token);
+                    localStorage.setItem('TOKEN',jwt.id_token);
                     fetch('http://localhost:8080/api/users/' + this.state.username,{
                         headers: {
                             Authorization: 'Bearer ' + jwt.id_token
@@ -70,8 +71,12 @@ export default class Login extends React.Component {
                             this.props.history.push('/home-admin');
                         } else if(data.authorities.includes('ROLE_USER')){
                             this.props.history.push('/home-user');
+                        } else {
+                            alert('Unauthorized');
                         }
                     })
+                } else {
+                    alert('Wrong credentials');
                 }
             
             });

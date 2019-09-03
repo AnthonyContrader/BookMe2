@@ -1,10 +1,21 @@
 import React from 'react';
 
-class User {
-    constructor(username, password, authorities){
-        this.username = username;
-        this.password = password;
-        this.authorities = authorities;
+export default class User extends React.Component{
+    state = {
+        username: '',
+        password: '',
+        email: '',
+        authorities: ''
     }
 
+    render() {
+        return (
+            <ul>
+                <li>{this.state.username}</li>
+                <li>{this.state.password}</li>
+                <li>{this.state.email}</li>
+                <li>{this.state.authorities}</li>
+            </ul>
+        );
+    }
 }
