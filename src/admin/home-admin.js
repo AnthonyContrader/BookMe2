@@ -9,17 +9,27 @@ import User from '../models/user';
 export default class HomeAdmin extends React.Component {
     constructor(props){
         super(props);
-        this.userService = new UserService();  
-    }
-    state = {
-        users: [],
-        user: User
+        this.userService = new UserService();
+        this.getCurrentUser(localStorage.getItem('username')); 
+        // this.getAllUsers();
     }
 
-    showList = async () => {
-        this.state.users = await this.userService.getAll();
-        this.state.user = await this.userService.get('admin');
-        console.log(this.state.user);
+    getCurrentUser = async (username) => {
+        const currentUser = await this.userService.get(username);
+        this.setState({currentUser});
+    }
+
+    getAllUsers = async () => {
+        var users = await this.userService.getAll();
+        this.setState({users});
+    }
+
+    state = {
+        users: []
+    }
+
+    showState = () => {
+        console.log(this.state);
     }
     logout = () => {
         localStorage.clear();
@@ -31,7 +41,7 @@ export default class HomeAdmin extends React.Component {
           <div>
               <div>
                   <h1 className="Content">HOME ADMIN</h1>
-                  <button onClick={this.showList}>Show all Users</button>
+                  <button onClick={this.showList}>Show state</button>
               </div>
               <div>
                   <button onClick={this.logout}>Logout</button>

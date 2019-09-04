@@ -4,7 +4,6 @@ import User from '../models/user';
 export default class HomeUser extends React.Component {
 
     
-
     logout = () =>{
       localStorage.clear();
       this.props.history.push('/login');
