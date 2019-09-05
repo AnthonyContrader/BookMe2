@@ -26,19 +26,9 @@ class LoginComponent extends Component {
         if(jwt.id_token){
             localStorage.setItem('TOKEN',jwt.id_token);
             console.log('Utente loggato!');
-            // let currentUser = await this.userService.get(this.state.username);
             localStorage.setItem('username',this.state.username);
             const data = await this.loginService.authorities();
             this.props.goTo(data);
-            // console.log(data);
-            // if(data.includes('ROLE_ADMIN')){
-            //     this.props.history.push('/home-admin');
-            // } else if(data.includes('ROLE_USER')){
-            //     this.props.history.push('/home-user');
-            // } else {
-            //     alert('Unauthorized');
-            //     localStorage.clear();
-            // }
         } else {
             alert('Something went wrong');
         }
