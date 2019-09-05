@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+// import App from './App';
 import * as serviceWorker from './serviceWorker';
 import Login from './Login';
-import { Redirect, Route, Link, BrowserRouter as Router, Switch } from 'react-router-dom';
+import { Redirect, Route,  BrowserRouter as Router, Switch } from 'react-router-dom';
 import withAuth from './withAuth';
 import Notfound from './notfound';
 import HomeAdmin from './admin/home-admin';
@@ -17,7 +17,7 @@ const routing = (
         <div>
         <Switch>
       <Route exact path="/login" component={Login} />
-      {/* <Route path="/home-admin" component={withAuth(App)} /> */}
+      {/* <Route path="/home-admin" component={withAuth(HomeAdmin)} /> */}
       <Route path="/home-admin" component={HomeAdmin} />
       <Route path="/home-user" component={HomeUser} />
       <Redirect to='/login' />

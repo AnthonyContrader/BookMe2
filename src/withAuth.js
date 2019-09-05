@@ -6,43 +6,20 @@ export default function withAuth(ComponentToProtect) {
       super();
       this.state = {
         loading: true,
-        redirect: false,
+        redirect: true,
       };
     }
 
-    auth = function(){
-        const token = localStorage.getItem('AUTH');
-        console.log('TOKEN -> ' + token);
-        if(token){
-            return 'Bearer ' + token;
-        }
-        return '';
-    }
     componentDidMount() {
-      fetch('http://localhost:8080/api/authenticate',{
-        method: 'GET',
-        headers: {
-          Authorization: this.auth()
-        }
-      })
-        .then(res => {
-          if (res.status === 200) {
-            this.setState({ loading: false, redirect: true });
-          } else {
-            const error = new Error(res.error);
-            throw error;
-          }
-        })
-        .catch(err => {
-          console.error(err);
-          this.setState({ loading: false, redirect: true });
-        });
+        if(localStorage.getItem('TOKEN')){
+            this.setState({ loading: false, redirect: false });
+        } 
     }
     render() {
       const { loading, redirect } = this.state;
-      if (loading) {
-        return null;
-      }
+    //   if (loading) {
+    //     return null;
+    //   }
       if (redirect) {
         return <Redirect to="/login" />;
       }

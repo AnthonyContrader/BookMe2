@@ -19,7 +19,7 @@ export default class LoginService {
         };
     }
 
-    authenticate = (value) => {
+    authenticate(value) {
         return fetch(this.state.uri + this.state.api + '/authenticate', {
             method: 'POST',
             body: JSON.stringify(value),
@@ -30,7 +30,7 @@ export default class LoginService {
         .then(res=>res.json());
     }
 
-    authorities = (value) => {
+    authorities(value) {
         return fetch(this.state.uri + this.state.api + '/users/authorities', this.header()).then(res=>res.json());
     }
 

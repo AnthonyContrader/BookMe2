@@ -1,8 +1,8 @@
 import React from 'react';
 import './Login.css';
-import Form from 'react-bootstrap/Form';
+// import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import User from './models/user';
+// import User from './models/user';
 import LoginService from './services/loginservice';
 import UserService from './services/userservice';
 
@@ -33,7 +33,7 @@ export default class Login extends React.Component {
             // let currentUser = await this.userService.get(this.state.username);
             localStorage.setItem('username',this.state.username);
             let data = await this.loginService.authorities();
-            // console.log(data);
+            console.log(data);
             if(data.includes('ROLE_ADMIN')){
                 this.props.history.push('/home-admin');
             } else if(data.includes('ROLE_USER')){
@@ -43,7 +43,7 @@ export default class Login extends React.Component {
                 localStorage.clear();
             }
         } else {
-            alert('Wrong credentials');
+            alert('Something went wrong');
         }
       }
     render() {
