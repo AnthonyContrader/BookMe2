@@ -1,10 +1,13 @@
 import React from 'react';
-import './Login.css';
 // import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 // import User from './models/user';
 import LoginService from './services/loginservice';
 import UserService from './services/userservice';
+import LoginComponent from './loginComponent';
+import SignupComponent from './signupComponent';
+import './loginStyle.css' ;
+
 
 export default class Login extends React.Component {
     constructor(props) {
@@ -12,6 +15,7 @@ export default class Login extends React.Component {
       this.loginService = new LoginService();
       this.userService = new UserService();
       this.state = {
+        visible: true,
         username: '',
         password: ''
       };
@@ -22,6 +26,12 @@ export default class Login extends React.Component {
         [name]: value
       });
     }
+
+   visibility = () =>{
+        
+      this.setState({visible: this.state.visible = !this.state.visible}) 
+      console.log("cliccato",this.state.visible);
+   }
         
     onSubmit = async (event) => {
         event.preventDefault();
@@ -48,6 +58,11 @@ export default class Login extends React.Component {
       }
     render() {
       return (
+
+        <div>
+            {this.state.visible === true ? <LoginComponent mianonna={this.visibility} /> : <SignupComponent onDelete={this.visibility}/>} 
+        </div>   
+        /*
         <form className="Login" onSubmit={this.onSubmit}>
           <h1 id="content">Login</h1>
           <input
@@ -56,8 +71,7 @@ export default class Login extends React.Component {
             placeholder="Enter username"
             value={this.state.username}
             onChange={this.handleInputChange}
-            required
-          />
+            required/>
           <input
             type="password"
             name="password"
@@ -66,10 +80,11 @@ export default class Login extends React.Component {
             onChange={this.handleInputChange}
             required
           />
-         <Button variant="primary" type="submit">
-                Submit
-        </Button>
+          <Button variant="primary" type="submit">
+                  Submit
+          </Button>
         </form>
+        */
       );
     }
   }
