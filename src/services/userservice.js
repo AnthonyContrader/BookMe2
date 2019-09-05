@@ -1,6 +1,6 @@
-import AbstractService from './abstractservice';
+import StandardService from './standardservice';
 
-export default class UserService extends AbstractService{
+export default class UserService extends StandardService{
     constructor(props) {
         super(props);
         this.state.api += '/users';

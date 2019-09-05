@@ -5,7 +5,7 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import Login from './Login';
 import { Redirect, Route,  BrowserRouter as Router, Switch } from 'react-router-dom';
-import withAuth from './withAuth';
+// import withAuth from './withAuth';
 import Notfound from './notfound';
 import HomeAdmin from './admin/home-admin';
 import HomeUser from './user/home-user';

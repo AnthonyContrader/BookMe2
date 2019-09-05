@@ -1,6 +1,4 @@
-import User from "../models/user";
-
-export default class AbstractService {
+export default class StandardService {
 
     state = {
         uri: 'http://localhost:8080',
@@ -19,48 +17,47 @@ export default class AbstractService {
         };
     }
 
-    getAll(){
-        return fetch(this.state.uri + this.state.api, this.header())
-        .then(res=>res.json());
+    async getAll(){
+        const res = await fetch(this.state.uri + this.state.api, this.header());
+        return await res.json();
     }
 
-    get(value){
-        return fetch(this.state.uri + this.state.api + '/' + value, this.header())
-        .then(res=>res.json());
+    async get(value){
+        const res = await fetch(this.state.uri + this.state.api + '/' + value, this.header());
+        return await res.json();
     }
 
-    insert(value){
-        return fetch(this.state.uri + this.state.api, { 
+    async insert(value){
+        const res = await fetch(this.state.uri + this.state.api, {
             method: 'POST',
             body: JSON.stringify(value),
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: 'Bearer ' + this.auth()
             }
-        })
-        .then(res=>res.json());
+        });
+        return await res.json();
     }
 
-    delete(value) {
-        return fetch(this.state.uri + this.state.api + '/' + value, { 
+    async delete(value) {
+        return await fetch(this.state.uri + this.state.api + '/' + value, {
             method: 'DELETE',
             headers: {
                 Authorization: 'Bearer ' + this.auth()
             }
-        })
-        .then(res=>res.json());
+        });
     }
 
-    update(value) {
-        return fetch(this.state.uri + this.state.api, { 
+    async update(value) {
+        const res = await fetch(this.state.uri + this.state.api, {
             method: 'PUT',
             body: JSON.stringify(value),
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: 'Bearer ' + this.auth()
             }
-        })
-        .then(res=>res.json());
+        });
+        return await res.json();
     }
 
 }
