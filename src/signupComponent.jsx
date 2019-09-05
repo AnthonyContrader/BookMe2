@@ -26,7 +26,7 @@ class SignupComponent extends Component {
 
                    <div className="buttonLogin">
                        <button type="submit">Login</button>
-                       <a href="#" onClick={this.props.onDelete}><small> You don't have an account yet? </small></a>
+                       <a href="#" onClick={this.props.showComponent}><small> You don't have an account yet? </small></a>
                    </div>
 
                </form> 
