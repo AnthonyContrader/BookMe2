@@ -25,7 +25,7 @@ class SignupComponent extends Component {
                    </div>
 
                    <div className="buttonLogin">
-                       <button type="submit">Login</button>
+                       <button type="submit">Signup</button>
                        <a href="#" onClick={this.props.showComponent}><small> You don't have an account yet? </small></a>
                    </div>
 
